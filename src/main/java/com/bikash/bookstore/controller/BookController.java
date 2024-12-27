@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class BookController {
@@ -24,6 +26,10 @@ public class BookController {
     @GetMapping("/book/{id}")
     public Book getBookDetails(@PathVariable("id") Long bookId){
         return bookService.getBookById(bookId);
+    }
+ @GetMapping("/getBooks")
+    public List<Book> getAllBookDetails(){
+        return bookService.getAllBook();
     }
 
     @PutMapping("/update/{id}")
